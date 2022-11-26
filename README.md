@@ -21,6 +21,9 @@ https://www.geeksforgeeks.org/parse-json-java/
 Read JSON file in Java:
 https://www.tutorialspoint.com/how-can-we-read-a-json-file-in-java 
 
+More JSON parser things that also include info on URL stuff
+https://medium.com/swlh/getting-json-data-from-a-restful-api-using-java-b327aafb3751
+
 
 
 
