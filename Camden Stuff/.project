@@ -3,6 +3,7 @@
 	<name>Camden Stuff</name>
 	<comment></comment>
 	<projects>
+		<project>DnDMonsterRoller</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

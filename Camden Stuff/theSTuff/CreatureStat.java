@@ -26,17 +26,15 @@ public class CreatureStat extends MonsterParser
 	
 	public static void apiFetch() throws IOException
 	{
-		URL url = new URL("https://api.open5e.com/monsters");
+		URL url = new URL("https://api.open5e.com/?format=json&monsters");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.connect();
 		int responsecode = conn.getResponseCode();
-		Scanner scanner = null;
-		scanner = new Scanner(url.openStream());
 
 		
 		String rawData = "";
-	    Scanner scan = new Scanner(url.openStream());
+	    Scanner scanner = new Scanner(url.openStream());
 		while (scanner.hasNext()) {
 		       rawData += scanner.nextLine();
 		    }
@@ -49,7 +47,7 @@ public class CreatureStat extends MonsterParser
 			try {
 				Object obj = parser.parse(rawData);
 				JSONObject jsonObject = (JSONObject) obj;
-				JSONArray results = (JSONArray) jsonObject.get("count");
+				JSONArray results = (JSONArray) jsonObject.get(jsonObject);
 				
 				System.out.println(results);
 				
