@@ -48,6 +48,7 @@ public class CreatureStat extends MonsterParser
 				Object obj = parser.parse(rawData);
 				JSONObject jsonObject = (JSONObject) obj;
 				JSONArray results = (JSONArray) jsonObject.get(jsonObject);
+				JSONObject thing = (JSONArray) jsonObject.get(strength);
 				
 				System.out.println(results);
 				
