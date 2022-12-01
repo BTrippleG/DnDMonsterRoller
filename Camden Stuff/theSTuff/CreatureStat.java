@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
-public class CreatureStat extends MonsterParser
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+public class CreatureStat
 {
 	
 	public int getCreatureStat(String stat)
@@ -43,14 +43,21 @@ public class CreatureStat extends MonsterParser
 		    throw new RuntimeException("HttpResponseCode: " + responsecode);
 		} else {
 			
-			JSONParser parser = new JSONParser();
+			Gson gson = new Gson();
+			
 			try {
-				Object obj = parser.parse(rawData);
-				JSONObject jsonObject = (JSONObject) obj;
-				JSONArray results = (JSONArray) jsonObject.get(jsonObject);
-				JSONObject thing = (JSONArray) jsonObject.get(strength);
 				
-				System.out.println(results);
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 				
 			} catch (Exception e) {
