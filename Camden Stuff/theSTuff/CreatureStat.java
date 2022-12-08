@@ -278,14 +278,25 @@ public class CreatureStat
 		 }
 		
 	
+	
+	//testing method that will be deleted upon completion of project
 	public static void main(String[]args) throws IOException
 	{
 		
 		MonsterMethods b = new MonsterMethods();
 		
 		getName(b.toUrl());
-		
-		//System.out.println(b);
+		getStrength(b.toUrl());
+		getDexterity(b.toUrl());
+		getConstitution(b.toUrl());
+		getIntelligence(b.toUrl());
+		getWisdom(b.toUrl());
+		getCharisma(b.toUrl());
+		getPerception(b.toUrl());
+		getHitPoints(b.toUrl());
+		getArmorClass(b.toUrl());
+		getSize(b.toUrl());
+		getStrength(b.toUrl());
 		
 		
 		
