@@ -1,4 +1,4 @@
-package application;
+package theSTuff;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,19 +32,31 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class MonsterMethods {
-	private String strength, dexterity, constitution, intelligents, wisdom, charisma;
-	private String name, size, type, alignment;
-	private String skill, armor, hitPoints, speed, senses, languages, challenge;
-	private String imageString;
-	private String searchUrl = ("https://api.open5e.com/monsters/?format=json&search=");
-	private Random random = new Random();
-	private String slug;
+	public String strength, dexterity, constitution, intelligents, wisdom, charisma;
+	public String name, size, type, alignment;
+	public String skill, armor, hitPoints, speed, senses, languages, challenge;
+	public String imageString;
+	public String searchUrl = ("https://api.open5e.com/monsters/?format=json&search=");
+	public Random random = new Random();
+	public String slug;
 
 	public MonsterMethods() {
 	}
 
-	public URL toUrl(String u) throws MalformedURLException {
-		String urlString = searchUrl + u;
+	public URL toUrl() throws MalformedURLException {
+		
+		int r = random.nextInt(1470);
+
+		try (BufferedReader br = new BufferedReader(new FileReader("MonsterList"))) {
+			for (int i = 0; i < r; i++)
+				br.readLine();
+			slug = br.readLine();
+
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+		
+		String urlString = searchUrl + slug;
 		URL url = new URL(urlString);
 
 		return url;
@@ -74,7 +86,7 @@ public class MonsterMethods {
 	}
 
 	public void jsonParse() throws FileNotFoundException, IOException, ParseException {
-		Object obj = new JSONParser().parse(new FileReader("\\DnDMonster\\RelatedFiles\\Monsters.json"));
+		Object obj = new JSONParser().parse(new FileReader("\\Camden Stuff\\theSTuff\\Monsters.json"));
 		JSONObject jsonObject = (JSONObject) obj;
 
 		JSONArray results = (JSONArray) jsonObject.get("results");

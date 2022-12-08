@@ -11,78 +11,286 @@ import com.google.gson.GsonBuilder;
 
 public class CreatureStat
 {
+	public String searchUrl = ("https://api.open5e.com/monsters/?format=json&search=");
 	
-	public int getCreatureStat(String stat)
+	public static void getName(URL c) throws IOException
 	{
-		return 1;
 		
-		
-		
-		
-		
-	}
-	
-	
-	
-	
-	public static void apiFetch() throws IOException
-	{
-		URL url = new URL("https://api.open5e.com/monsters/?format=json");
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
 		conn.setRequestMethod("GET");
 		conn.connect();
-		int responsecode = conn.getResponseCode();
 		
-		Scanner scanner = new Scanner(url.openStream());
-
-		/*
-		String rawData = "";
-	    Scanner scanner = new Scanner(url.openStream());
-		while (scanner.hasNext()) {
-		       rawData += scanner.nextLine();
-		    }
+		Scanner scanner = new Scanner(c.openStream());
 		
-		if (responsecode != 200) {
-		    throw new RuntimeException("HttpResponseCode: " + responsecode);
-		} else {
-			
-			Gson gson = new Gson();
-			
-			*/
-			
 			try {
 				
 				Gson gson = new Gson();
 				
 				String rawData = scanner.nextLine();
 				
-				Monster object = gson.fromJson(rawData, Monster.class);
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
 				
+				System.out.println(monster.results[0].name);
 				
-				System.out.println(object.strength);
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-			} catch (Exception e) {
-				// System.out.println("name not found");
+				} catch (Exception e) {
 				e.printStackTrace();
 			}
-		    
-		    
+		 }
+	
+	public static void getStrength(URL c) throws IOException
+	{
 		
-		}
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].strength);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getDexterity(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].dexterity);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getConstitution(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].constitution);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getWisdom(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].wisdom);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getIntelligence(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].intelligence);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getCharisma(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].charisma);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getPerception(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].perception);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getHitPoints(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].hit_points);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getSize(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].size);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
+	
+	public static void getArmorClass(URL c) throws IOException
+	{
+		
+		HttpURLConnection conn = (HttpURLConnection) c.openConnection();
+		conn.setRequestMethod("GET");
+		conn.connect();
+		
+		Scanner scanner = new Scanner(c.openStream());
+		
+			try {
+				
+				Gson gson = new Gson();
+				
+				String rawData = scanner.nextLine();
+				
+				AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
+				
+				System.out.println(monster.results[0].armor_class);
+				
+				} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 }
 		
 	
 	public static void main(String[]args) throws IOException
 	{
-		apiFetch();
+		
+		MonsterMethods b = new MonsterMethods();
+		
+		getName(b.toUrl());
+		
+		//System.out.println(b);
+		
+		
+		
+		
+		
 		
 		
 	}
