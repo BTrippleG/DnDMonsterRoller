@@ -298,7 +298,8 @@ public class CreatureStat
 		getSize(b.toUrl());
 		getStrength(b.toUrl());
 		
-		
+		//extra note: some monsters are not completed inaccessible as previously thought. 
+		//It's just that certain parts of them are as demonstrated in the above segment
 		
 		
 		
