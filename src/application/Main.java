@@ -11,7 +11,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception{
 		Parent root = FXMLLoader.load(getClass().getResource("/DnDMain.fxml"));
 		primaryStage.setTitle("DnD Monster Roller");
-		primaryStage.setScene(new Scene(root, 600, 645));
+		primaryStage.setScene(new Scene(root, 600, 358));
 		primaryStage.show();
 		
 	}
@@ -21,8 +21,5 @@ public class Main extends Application {
 	}
 }
 
-
-//https://api.open5e.com/monsters/?limit= + "count"
-
-
-
+//GGG
+//CH
