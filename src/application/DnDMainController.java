@@ -1,7 +1,7 @@
 package application;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,26 +9,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 
 public class MonController {
-	@FXML
-	private Label action;
-
-	@FXML
-	private HBox actionBox;
-
-	@FXML
-	private Label actionDescrip;
-
 	@FXML
 	private Label armor;
 
 	@FXML
-	private Button button;
+	private Label armorDesc;
 
 	@FXML
-	private Label challenge;
+	private Button button;
 
 	@FXML
 	private Label charisma;
@@ -40,46 +30,19 @@ public class MonController {
 	private Label dexterity;
 
 	@FXML
+	private Label hitDice;
+
+	@FXML
 	private Label hitPoints;
 
 	@FXML
 	private Label intelligents;
 
 	@FXML
-	private Label languages;
-
-	@FXML
-	private Label legend;
-
-	@FXML
-	private HBox legendBox;
-
-	@FXML
-	private Label legendDescrip;
-
-	@FXML
 	private Label name;
 
 	@FXML
-	private Label senses;
-
-	@FXML
 	private Label sizeTypeAli;
-
-	@FXML
-	private Label skills;
-
-	@FXML
-	private Label special;
-
-	@FXML
-	private HBox specialBox;
-
-	@FXML
-	private Label specialDescrip;
-
-	@FXML
-	private Label speed;
 
 	@FXML
 	private Label strength;
@@ -93,6 +56,16 @@ public class MonController {
 	@FXML
 	void buttonPressed(ActionEvent event) throws IOException {
 		MonsterMethods info = new MonsterMethods();
+		URL monsterURL = info.toUrl();
+
+		// setters for top
+		info.setStrength(monsterURL);
+		info.setName(monsterURL);
+		info.setDexterity(monsterURL);
+		info.setConstitution(monsterURL);
+		info.setWisdom(monsterURL);
+		info.setIntelligence(monsterURL);
+		info.setCharisma(monsterURL);
 
 		// Set stats
 		strength.setText(info.getStrength());
@@ -101,35 +74,27 @@ public class MonController {
 		intelligents.setText(info.getIntelligents());
 		wisdom.setText(info.getWisdom());
 		charisma.setText(info.getCharisma());
+		name.setText(info.getName());
 
-		// set name info
-		//info.setImageString("fey");
-		//typeImage.setImage(info.convertImage());
-		//typeImage.setImage(new Image("file:Humanoid.png"));// change to new image
-		name.setText(info.monsSlug()); // Change to name 
-		sizeTypeAli.setText(info.combineSizeTypeAli());
+		// setters for bottom info
+		info.setArmorClass(monsterURL);
+		info.setSize(monsterURL);
+		info.setType(monsterURL);
+		info.setAlignment(monsterURL);
+		info.setArmorDesc(monsterURL);
+		info.setHitPoints(monsterURL);
+		info.setHitDice(monsterURL);
 
 		// set "scroll pane"
 		armor.setText(info.getArmor());
+		sizeTypeAli.setText(info.combineSizeType());
+		armorDesc.setText(info.getArmorDesc());
 		hitPoints.setText(info.getHitPoints());
-		speed.setText(info.getSpeed());
-		skills.setText(info.getSkills());
+		hitDice.setText(info.getHitDice());
+		
+		//info.setImageString();
+		//typeImage.setId("");
 
-		senses.setText(info.getSenses());
-		languages.setText(info.getLanguages());
-		challenge.setText(info.getChallenge());
-	}
-	
-	protected void createHBox(int count, HBox exsitingH){
-		ArrayList<HBox> boxes = new ArrayList<HBox>();
-		
-		for(int i = 0; i < count; i++) {
-			//HBox hB = new HBox();
-			boxes.add(exsitingH);
-		}
-		
-		
-		
 	}
 
 }
