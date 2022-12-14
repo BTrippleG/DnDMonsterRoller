@@ -1,10 +1,14 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Random;
 import java.net.HttpURLConnection;
 import java.util.Scanner;
@@ -24,6 +28,7 @@ public class MonsterMethods {
 	public String searchUrl = ("https://api.open5e.com/monsters/?format=json&search=");
 	public Random random = new Random();
 	public String slug;
+	public String saved;
 
 	public MonsterMethods() {
 	}
@@ -132,7 +137,6 @@ public class MonsterMethods {
 			AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
 
 			this.alignment = (monster.results[0].alignment);
-			System.out.println(alignment);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -285,7 +289,6 @@ public class MonsterMethods {
 			AllMonsters monster = gson.fromJson(rawData, AllMonsters.class);
 
 			this.name = (monster.results[0].name);
-			System.out.println(name);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -532,12 +535,69 @@ public class MonsterMethods {
 		}
 	}
 
-	public String getHitDice() {
+public String getHitDice() {
 		if (this.hitDice == null) {
 			return "- -";
 		} else {
 
 			return this.hitDice;
+		}
+	}
+
+
+	public void createReadFile() throws IOException{
+
+		try {
+			File myObj = new File("SavedMonster.txt");
+			if (myObj.createNewFile()) {
+				System.out.println("File created: " + myObj.getName());
+			} else {
+				System.out.println("Collecting data");
+				Path filePath = Path.of("SavedMonster.txt");
+
+				this.saved = Files.readString(filePath);
+				System.out.println(saved);
+
+
+					FileWriter myWriter = new FileWriter("SavedMonster.txt");
+					myWriter.write(saved);
+					myWriter.close();
+					
+					String[] arrOfSaved = saved.split("@");
+					this.strength = arrOfSaved[0];
+					this.dexterity = arrOfSaved[1];
+					this.constitution = arrOfSaved[2];
+					this.intelligents = arrOfSaved[3];
+					this.wisdom = arrOfSaved[4];
+					this.charisma = arrOfSaved[5];
+					this.name = arrOfSaved[6];
+					this.size = arrOfSaved[7];
+					this.type = arrOfSaved[8];
+					this.alignment = arrOfSaved[9];
+					this.armor = arrOfSaved[10];
+					this.armorDesc = arrOfSaved[11];
+					this.hitPoints = arrOfSaved[12];
+					this.hitDice = arrOfSaved[13];
+
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void getLastMonster() throws IOException {
+		if (name != null) {
+			this.saved = strength + "@" + dexterity + "@" + constitution + "@" + intelligents + "@" + wisdom + "@"
+					+ charisma + "@" + name + "@" + size + "@" + type + "@" + alignment + "@" + armor + "@" + armorDesc
+					+ "@" + hitPoints + "@" + hitDice;
+			FileWriter myWriter = new FileWriter("SavedMonster.txt");
+			myWriter.write(saved);
+			myWriter.close();
+			
+			System.out.println(saved);
+		} else {
+			System.out.println("Error Occured during load: Data Not Saved");
 		}
 	}
 
