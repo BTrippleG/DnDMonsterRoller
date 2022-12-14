@@ -52,6 +52,27 @@ public class MonController {
 
 	@FXML
 	private Label wisdom;
+	
+		@FXML
+	public void initialize() throws IOException{
+		MonsterMethods info = new MonsterMethods();
+
+		info.createReadFile();	
+		
+		strength.setText(info.getStrength());
+		dexterity.setText(info.getDexterity());
+		constitution.setText(info.getConstitution());
+		intelligents.setText(info.getIntelligents());
+		wisdom.setText(info.getWisdom());
+		charisma.setText(info.getCharisma());
+		name.setText(info.getName());
+		
+		armor.setText(info.getArmor());
+		sizeTypeAli.setText(info.combineSizeType());
+		armorDesc.setText(info.getArmorDesc());
+		hitPoints.setText(info.getHitPoints());
+		hitDice.setText(info.getHitDice());
+	}
 
 	@FXML
 	void buttonPressed(ActionEvent event) throws IOException {
@@ -92,8 +113,8 @@ public class MonController {
 		hitPoints.setText(info.getHitPoints());
 		hitDice.setText(info.getHitDice());
 		
-		//info.setImageString();
-		//typeImage.setId("");
+		info.getLastMonster();
+
 
 	}
 
